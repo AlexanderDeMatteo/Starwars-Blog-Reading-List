@@ -1,15 +1,30 @@
 import React from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
+import { Card } from "../component/card.jsx"
+import PropTypes from "prop-types";
+import { Peoplecards } from "../component/Peoplecards.jsx";
+import { Planetcards } from "../component/Planetcards.jsx";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
+
+
+export const Home = () => {
+	return (
+		<>
+		<div className = "fondo">
+		<h1>personajes</h1>
+	<div>
+		<Peoplecards	/>
 	</div>
-);
+		<h1>planetas</h1>
+	<div className="row">
+	<Planetcards/>
+	</div>
+	</div>
+		</>
+	);
+};
+
+Card.propTypes = {
+	colSpacing: PropTypes.string
+};

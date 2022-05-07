@@ -1,0 +1,30 @@
+.card{
+    margin-top: 20px;
+    margin-bottom: 8px;
+    margin-left: 10px;
+    
+}
+
+.row {
+    margin: 60px;
+    border: 1px solid #333333;
+    width: 1240px;
+    height: 500px;
+    overflow: scroll;
+    
+  }
+
+  #corazon{
+      margin-left: 100px;
+      background-color: rgba(255, 255, 0, 0.651);
+  }
+  .fondo{
+      background-color: #333333;
+  }
+  h1{
+      color: white;
+      margin-left: 85px;
+      display:inline-block;
+      margin-top: 50px;
+      border-top: #000000;
+  }
