@@ -17,19 +17,12 @@ export const Peoplecards = () => {
     }
     return(
 
-        <div className="container-fluid">
-            <input 
-            onChange={(e)=>setAddPeopleName(e.target.value)} 
-            onKeyDown={(e)=> handlePeoples(e)}
-            type="text"
-            placeholder="Add a new People"
-            />
             <div className="row">
                 {store.personas.map((people, index)=>{
-                    return <Card title={people.name} index={index} type="personas" colSpacing="col-4" />;
+                    let id = people.url.replace("https://swapi.dev/api/people/","")
+                    return <Card key={people.name} title={people.name} index={id} caracteristica1={"Gender:"+ " " + people.gender} caracteristica2={"Hair color:"+ " " + people.hair_color} caracteristica3={"Eye color:" + " " + people.eye_color} type="people" colSpacing="col-4" />;
                     })}
             </div>
-        </div>
 
     );
 };

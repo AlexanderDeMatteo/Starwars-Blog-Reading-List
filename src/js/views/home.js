@@ -17,8 +17,8 @@ export const Home = () => {
 		<Peoplecards	/>
 	</div>
 		<h1>planetas</h1>
-	<div className="row">
-	<Planetcards/>
+	<div>
+		<Planetcards/>
 	</div>
 	</div>
 		</>

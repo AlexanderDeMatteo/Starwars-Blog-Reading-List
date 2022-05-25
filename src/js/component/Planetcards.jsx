@@ -17,19 +17,11 @@ export const Planetcards = () => {
     }
     return(
 
-        <div className="container-fluid">
-            <input 
-            onChange={(e)=>setAddPlanetsName(e.target.value)} 
-            onKeyDown={(e)=> handlePlanet(e)}
-            type="text"
-            placeholder="Add a new Planet"
-            />
             <div className="row">
                 {store.planetas.map((planet, index)=>{
-                    return <Card title={planet.name} index={index} type="planetas" colSpacing="col-4" />;
+                    return <Card title={planet.name} index={index} type="planetas" caracteristica1={"Population:"+ " " + planet.population} caracteristica2={"Terrain:"+ " " + planet.terrain} caracteristica3={"Climate:" + " " + planet.climate} colSpacing="col-4" />;
                     })}
             </div>
-        </div>
 
     );
 };

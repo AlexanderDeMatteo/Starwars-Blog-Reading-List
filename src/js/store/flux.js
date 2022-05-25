@@ -13,17 +13,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			URL_BASE: "https://swapi.dev/api/", 
+			URL_BASE: "https://swapi.dev/api", 
 			personas: [],
-			planetas: []
+			planetas: [],
+			favoritos: []
 
 		},
 		actions: {
 			getPeople: async () => {
 				const store = getStore()
-				let response = await fetch(`${store.URL_BASE}people`);
+				let response = await fetch(`${store.URL_BASE}/people`);
 				if (response.ok){
 					let body  = await response.json()
+					console.log(body)
 					setStore({personas:body.results})
 				}
 			},
@@ -31,7 +33,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getPlanets: async () => {
 				const store = getStore()
-				let response = await fetch(`${store.URL_BASE}planets`);
+				let response = await fetch(`${store.URL_BASE}/planets`);
 				if (response.ok){
 					let body  = await response.json()
 					setStore({planetas:body.results})
