@@ -16,7 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			URL_BASE: "https://swapi.dev/api", 
 			personas: [],
 			planetas: [],
-			favoritos: []
+			vehiculos: [],
+			favorites: []
 
 		},
 		actions: {
@@ -25,7 +26,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let response = await fetch(`${store.URL_BASE}/people`);
 				if (response.ok){
 					let body  = await response.json()
-					console.log(body)
 					setStore({personas:body.results})
 				}
 			},
@@ -38,8 +38,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 					let body  = await response.json()
 					setStore({planetas:body.results})
 				}
-			}
+			},
 
+			getVehicles: async () => {
+				const store = getStore()
+				let response = await fetch(`${store.URL_BASE}/vehicles`);
+				if (response.ok){
+					let body  = await response.json()
+					setStore({vehiculos:body.results})
+				}
+			},
+
+			addToFavorite: (_name, _url, _isFav) => {
+				const favs = [...getStore().favorites, { favName: _name, url: _url, isFav: _isFav}];
+				setStore({favorites: favs});
+			},
+			
+			removeFavorite: index => {
+				const newFav = getStore().favorites.filter((fav, i) => i !== index);
+				setStore({favorites: newFav})
+			}
 
 			// // Use getActions to call a function within a fuction
 			// exampleFunction: () => {

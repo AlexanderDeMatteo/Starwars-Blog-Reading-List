@@ -5,7 +5,7 @@ import { Card } from "../component/card.jsx"
 import PropTypes from "prop-types";
 import { Peoplecards } from "../component/Peoplecards.jsx";
 import { Planetcards } from "../component/Planetcards.jsx";
-
+import { Vehiclecards } from "../component/Vehiclecards.jsx";
 
 
 export const Home = () => {
@@ -14,11 +14,15 @@ export const Home = () => {
 		<div className = "fondo">
 		<h1>personajes</h1>
 	<div>
-		<Peoplecards	/>
+		<Peoplecards/>
 	</div>
 		<h1>planetas</h1>
 	<div>
 		<Planetcards/>
+	</div>
+		<h1>vehiculos</h1>
+	<div>
+		<Vehiclecards/>
 	</div>
 	</div>
 		</>

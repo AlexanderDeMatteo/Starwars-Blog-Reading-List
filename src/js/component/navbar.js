@@ -1,35 +1,51 @@
 import React from "react";
 import "../../styles/navbar.css";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
-	return (
-// 		<nav className="navbar navbar-light bg-light mb-3">
-// 			<Link to="/">
-// 				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-// 			</Link>
-// 			<div className="ml-auto">
-// 				<Link to="/demo">
-// 					<button className="btn btn-primary">Check the Context in action</button>
-// 				</Link>
-// 			</div>
-// 		</nav>
-// 	);
-// };
-
-<ul id= "box" className="nav nav-pills">
-	<li className="nav-item">
-    <a className="nav-link" href="#">Star Wars</a>
-  </li>
-  <li id= "favoritos" className="nav-item dropdown">
-    <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Favoritos</a>
-    <ul className="dropdown-menu">
-      <li><a className="dropdown-item" href="#">Action</a></li>
-      <li><a className="dropdown-item" href="#">Another action</a></li>
-      <li><a className="dropdown-item" href="#">Something else here</a></li>
-      <li><hr className="dropdown-divider"/></li>
-      <li><a className="dropdown-item " href="#">Separated link</a></li>
+  const { store, actions } = useContext(Context);
+  return (
+    <ul id="box" className="nav nav-pills">
+      <li className="nav-item">
+        <Link className="nav-link" to="/">
+          Star Wars
+        </Link>
+      </li>
+      <div className="dropdown">
+        <button
+          className="btn btn-primary dropdown-toggle"
+          tyoe="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Favorites <span className="dot">{store.favorites.length}</span>
+        </button>
+        <ul
+          id="navDropDown"
+          className="dropdown-menu dropdown-menu-end"
+          aria-labelledby="dropdownMenuButton1"
+        >
+          {store.favorites &&
+            store.favorites.map((favorite, index) => {
+              return (
+                <li className="d-flex align-item-center" key={index}>
+                  <link to={favorite.url} className="dropdown-item">
+                    {favorite.favname}
+                  </link>
+                  <i
+                    className="far fa-trash-alt pe-2"
+                    onClick={(e) => {
+                      actions.removeFavorite(index);
+                    }}
+                  />
+                </li>
+              );
+            })}
+        </ul>
+      </div>
     </ul>
-  </li>
-</ul>
-);
+  );
 };

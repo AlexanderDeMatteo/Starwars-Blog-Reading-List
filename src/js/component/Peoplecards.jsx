@@ -17,10 +17,10 @@ export const Peoplecards = () => {
     }
     return(
 
-            <div className="row">
+            <div className="row" id="overflow">
                 {store.personas.map((people, index)=>{
                     let id = people.url.replace("https://swapi.dev/api/people/","")
-                    return <Card key={people.name} title={people.name} index={id} caracteristica1={"Gender:"+ " " + people.gender} caracteristica2={"Hair color:"+ " " + people.hair_color} caracteristica3={"Eye color:" + " " + people.eye_color} type="people" colSpacing="col-4" />;
+                    return <Card key={people.name} title={people.name} index={id} caracteristica1={"Gender:"+ " " + people.gender} caracteristica2={"Hair color:"+ " " + people.hair_color} caracteristica3={"Eye color:" + " " + people.eye_color} type="people" itemUrl={people.url} colSpacing="col-4" />;
                     })}
             </div>
 
