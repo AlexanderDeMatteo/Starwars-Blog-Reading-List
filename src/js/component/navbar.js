@@ -32,9 +32,9 @@ export const Navbar = () => {
             store.favorites.map((favorite, index) => {
               return (
                 <li className="d-flex align-item-center" key={index}>
-                  <link to={favorite.url} className="dropdown-item">
-                    {favorite.favname}
-                  </link>
+                  <Link to={favorite.url} className="dropdown-item">
+                    {favorite.favName}
+                  </Link>
                   <i
                     className="far fa-trash-alt pe-2"
                     onClick={(e) => {

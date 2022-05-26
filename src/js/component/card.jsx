@@ -7,7 +7,8 @@ import { Context } from "../store/appContext";
 
 export const Card = ({title, type, index, itemUrl, caracteristica1, caracteristica2, caracteristica3, colSpacing = "col-3" } ) => {
 	const { store, actions } = useContext(Context);
-  console.log(itemUrl)
+  console.log(title)
+  let url = `/detail/${type}/${index}`;
   return (
     <div className={colSpacing}>
 		<div className="card" style={{width: "18rem"}}>
@@ -23,7 +24,7 @@ export const Card = ({title, type, index, itemUrl, caracteristica1, caracteristi
     <button
           type="button"
           onClick={event =>{
-            let url = "/detail/" + itemUrl.replace("https://www.swapi.dev/api/");
+            
             if (
               store && store.favorites.find((favorite,index) => {
                 return favorite.url === url;
@@ -41,7 +42,7 @@ export const Card = ({title, type, index, itemUrl, caracteristica1, caracteristi
           className="btn border border-warning">
           {store &&
               store.favorites.find((favorite, index) => {
-                  return favorite.url === "/detail/" + itemUrl.replace("https://www.swapi.dev/api/", "");
+                  return favorite.url === url;
               }) ?(
                 <i className="fas fa-heart text-warning" />
               ) : (
