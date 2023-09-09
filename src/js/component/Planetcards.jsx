@@ -20,7 +20,8 @@ export const Planetcards = () => {
             <div className="row" id="overflow">
                 {store.planetas.map((planet, index)=>{
                     let id = planet.url.replace("https://swapi.dev/api/planets/","")
-                    return <Card title={planet.name} key={planet.name} index={id} type="planets" caracteristica1={"Population:"+ " " + planet.population} caracteristica2={"Terrain:"+ " " + planet.terrain} caracteristica3={"Climate:" + " " + planet.climate} itemUrl={planet.url} colSpacing="col-4" />;
+                    let id2 = id.replace("/","")
+                    return <Card title={planet.name} id={id2} key={planet.name} index={id} type="planets" caracteristica1={"Population:"+ " " + planet.population} caracteristica2={"Terrain:"+ " " + planet.terrain} caracteristica3={"Climate:" + " " + planet.climate} itemUrl={planet.url} colSpacing="col-4" />;
                     })}
             </div>
 

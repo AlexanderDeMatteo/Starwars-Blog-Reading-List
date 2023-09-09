@@ -12,15 +12,15 @@ export const Home = () => {
 	return (
 		<>
 		<div className = "fondo">
-		<h1>personajes</h1>
+		<h1 className="fondo_principal">personajes</h1>
 	<div>
 		<Peoplecards/>
 	</div>
-		<h1>planetas</h1>
+		<h1 className="fondo_2">planetas</h1>
 	<div>
 		<Planetcards/>
 	</div>
-		<h1>vehiculos</h1>
+		<h1 className="fondo_2">vehiculos</h1>
 	<div>
 		<Vehiclecards/>
 	</div>

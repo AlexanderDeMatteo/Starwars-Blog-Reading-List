@@ -1,3 +1,9 @@
 /* 
     General Styles
 */
+.footer{
+    background-color: grey;
+}
+#btn-basura{
+    cursor: pointer;
+}

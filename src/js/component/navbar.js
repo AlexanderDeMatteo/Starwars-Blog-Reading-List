@@ -37,6 +37,7 @@ export const Navbar = () => {
                   </Link>
                   <i
                     className="far fa-trash-alt pe-2"
+                    id="btn-basura"
                     onClick={(e) => {
                       actions.removeFavorite(index);
                     }}

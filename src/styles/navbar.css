@@ -2,6 +2,8 @@
     margin-left: 84%;
 }
 #box{
-    height: 100px;
+    height: 50px;
     display: flexbox;
+    justify-content: space-between;
+    background-color: rgba(70, 66, 66, 0.904);
 }
